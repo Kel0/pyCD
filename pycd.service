@@ -1,0 +1,16 @@
+[Unit]
+Description=pyCD 'delivering service'
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/path/pyCD
+Environment="PATH=/path/.pyenv/versions/3.7.0/envs/pyCD/bin:$PATH"
+ExecStart=/path/.pyenv/versions/3.7.0/envs/pyCD/bin/python /path/pyCD/run.py
+RestartSec=1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
